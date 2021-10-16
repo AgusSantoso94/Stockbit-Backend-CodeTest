@@ -16,5 +16,28 @@ function checkAnagram (string1, string2) {
   }
 }
 
-console.log(`Test 1. string1: ${'spiderman'} and string2: ${'manspider'} isAnagram: `, checkAnagram('spiderman','manspider'))
-console.log(`Test 2. string1: ${'superman'} and string2: ${'batman'}  isAnagram:`, checkAnagram('superman','batman'))
+function groupingAnagram(strings) {
+  const result = [];
+  for ( let x = 0; x < strings.length; x++ ) {
+    const string1 = strings[x];
+    const output = [string1];
+
+    if (result.flat().includes(string1)) continue;
+    
+    for ( let y = 0; y < strings.length; y++ ) {
+      if (y === x) continue;
+
+      const string2 = strings[y];
+      const isAnagram = checkAnagram(string1, string2);
+      if (isAnagram) output.push(string2);
+    }
+
+    result.push(output);
+  }
+  
+  return result
+}
+
+// show result
+const strings = ['kita', 'atik', 'tika', 'aku', 'kia', 'makan', 'kua'];
+console.log('result : ', groupingAnagram(strings))
