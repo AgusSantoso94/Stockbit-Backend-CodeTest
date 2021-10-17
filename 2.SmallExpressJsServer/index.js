@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
-const sequelize = require('./sequelize')
+const { MovieController } = require('./controllers')
 
 const app = express();
 
@@ -8,9 +9,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Simple Express Server is Working" });
+app.get('/search', MovieController.search);
+app.get('/detail', MovieController.detail);
+
+// catch 404 and forward to error handler
+app.use('*', (req, res) => {
+  return res.status(404).send({ 
+    status: false,
+    message: 'Request Not Found' 
+  });
 });
 
 // set port, listen for requests
