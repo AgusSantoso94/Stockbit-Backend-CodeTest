@@ -10,7 +10,7 @@ Table Name: USER
 SELECT usr2.ID AS ID, usr2.UserName AS UserName, usr1.UserName as ParentUserName 
 FROM USER usr1 
 RIGHT JOIN USER usr2
-WHERE usr1.ID = usr2.Parent
+ON usr1.ID = usr2.Parent
 
 /*
 Query Result :
