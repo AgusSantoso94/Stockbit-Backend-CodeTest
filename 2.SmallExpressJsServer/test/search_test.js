@@ -5,7 +5,6 @@ const app = require('../src/index')
 
 chai.use(chaiHttp);
 
-const { describe, it } = mocha;
 const expect = chai.expect;
 
 describe('/GET search', () => {
