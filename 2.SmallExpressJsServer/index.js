@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
-const { MovieController } = require('./controllers')
+const routes = require('./routes');
 
 const app = express();
 
@@ -9,8 +9,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/search', MovieController.search);
-app.get('/detail', MovieController.detail);
+// api routes
+app.use('/', routes)
 
 // catch 404 and forward to error handler
 app.use('*', (req, res) => {
