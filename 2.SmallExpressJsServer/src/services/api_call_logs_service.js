@@ -1,4 +1,4 @@
-const { ApiCallLogsModel } = require('../models')
+const { ApiCallLogsModel } = require('../db/models')
 
 const ApiCallLogsService = {}
 
