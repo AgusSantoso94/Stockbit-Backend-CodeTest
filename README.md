@@ -46,6 +46,14 @@ and run it on you database management tools.
   npm run start
 ```
 
+You can also access the API using below url :
+
+```url
+GET - Search Movie List | 143.198.209.238/search?s=iron%20man
+
+GET - Get Movie Detail | 143.198.209.238/detail?t=iron%20man
+``` 
+
 ## 3. Code Refactoring
 
 **Instruction :**
