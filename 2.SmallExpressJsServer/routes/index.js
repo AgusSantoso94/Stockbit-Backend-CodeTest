@@ -14,6 +14,6 @@ const { saveApiCallLogs } = require('../middleware');
 //---------------------------
 
 router.get('/search', saveApiCallLogs(), MovieController.search);
-router.get('/detail', saveApiCallLogs(), MovieController.detail);
+router.get('/detail', saveApiCallLogs(), MovieController.getDetail);
 
 module.exports = router;

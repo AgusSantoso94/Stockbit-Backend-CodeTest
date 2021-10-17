@@ -15,10 +15,15 @@ app.use('/', routes)
 // catch 404 and forward to error handler
 app.use('*', (req, res) => {
   return res.status(404).send({ 
-    status: false,
+    status: 404,
     message: 'Request Not Found' 
   });
 });
+
+// error handler
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).send(err)
+})
 
 // set port, listen for requests
 const PORT = process.env.PORT || 4000;
