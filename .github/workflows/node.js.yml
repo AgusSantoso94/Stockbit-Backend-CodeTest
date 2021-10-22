@@ -25,5 +25,8 @@ jobs:
       with:
         node-version: '14'
         cache: 'npm'
+        path: '/src'
     - run: npm install
     - run: npm test
+    
+    
